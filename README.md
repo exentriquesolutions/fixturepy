@@ -16,5 +16,5 @@ Sample usage:
     >>> fixture(str) # create a string
     '63d0b4e450354948b69f6c3b4f9238f9'
      
-    >>> fixture(Email) # crate an email
+    >>> fixture(Email) # create an email
     'ad34d31609344283bd7ab77922b75e8b@14a8ba0c73a64ffda645cdd4d776757e.com'
