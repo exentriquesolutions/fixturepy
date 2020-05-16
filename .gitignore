@@ -2,3 +2,5 @@ fixturepy.egg-info
 build
 dist
 *.pyc
+input.txt
+travis.log

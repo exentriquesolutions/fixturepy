@@ -1,13 +1,21 @@
 language: python
 python:
-  - "2.7"
-  - "3.4"
-  - "3.5"
-  - "3.6"
-  - "3.7"
-  - "3.8"
-
+- '2.7'
+- '3.4'
+- '3.5'
+- '3.6'
+- '3.7'
+- '3.8'
 install:
-  - pip install nose2 .[test]
+- pip install nose2 .[test]
 script:
-  - python -m nose2
+- python -m nose2
+deploy:
+  provider: pypi
+  user: __token__
+  password:
+    secure: MWPO+/oZrcjUNdV7P/ImW0u6ViNlpSw63owx8aP0OJAKH9tI6D4u+2T12jfQ5PTGKkY1AcXqk+y/pUC6UXENe66pgCCB6hcxeiUE7Xn9yS8wjvPZCqN0epNft7VUigt6RVO+Uz42ZCIvPUlg3Xi2a2PWEOK3eD9NzL175y8EAszmXhPlRUAEWHMe1RiRVWjY6vYdp1p3QYbMuuVJEw+CUvVFXvFXBs6jXxWvO03pGwEzIe8VDLk+ArPW7vV6nITqYPn2pJU5uR9QNq2ejoDqHOiTrXcyau49SRJJSFzopAyVtKp5DckRfCRw9/FggPCL57dPcJ5pcADIXDczPv5KbdmvOwgk56vZaSW8Ks3l5HosZgnDYp8F9GzL+3YW5hJSlG/NEbWvHhBQRWFkpHtI/m7C4T+Bz0jU1DMpoP050RvPjNJHGc8I3VS3eF4eejSngu71XcrV3k0VEFLVUKv6CBUAAHonLR5UdA3fmDng4C7fwDw/GribgrI27Y4Th3fYdxU3/8M0TGx6sipiV2D2JlIZBuIbuiO/FY/CFBLZWl6oVMVqJlY8RDRToofwcrTUiD/TsKhcEmy7sg+IpzdxA6t3CkX7+5908UHxp4fE0wYmimxe9WhXKR5sFz5a/+xLjBv2gC5vb+LHOjVKqG47yPR0H2yA9jLgzBg8AsX2XKI=
+  on:
+    tags: true
+  distributions: "sdist bdist_wheel"
+  skip_existing: true
