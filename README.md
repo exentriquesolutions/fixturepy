@@ -1,5 +1,7 @@
 # Python data fixtures
 
+[![Build Status](https://travis-ci.org/exentriquesolutions/fixturepy.svg?branch=master)](https://travis-ci.org/github/exentriquesolutions/fixturepy)
+
 Create data fixtures to use them in  your tests
 
 Sample usage:
