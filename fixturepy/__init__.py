@@ -10,11 +10,24 @@ def _int():
     return random.randint(0, 100000)
 
 
+def _email():
+    return '%s@%s.com' % (_string(), _string())
+
+
+class Email:
+    def __init__(self):
+        pass
+
+
 class Fixture:
     factories = {
         str: _string,
-        int: _int
+        int: _int,
+        Email: _email,
     }
+
+    def __call__(self, cls):
+        return self.create(cls)
 
     def __init__(self):
         pass

@@ -8,6 +8,7 @@ assertpy = "*"
 nose2 = "*"
 wheel = "*"
 twine = "*"
+email-validator = "*"
 
 [packages]
 
