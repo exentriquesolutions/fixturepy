@@ -1,5 +1,6 @@
 import random
 import uuid
+from datetime import datetime, timezone
 
 
 def _string():
@@ -7,7 +8,7 @@ def _string():
 
 
 def _int(fixture_range=(0, 99999)):
-    return random.randint(fixture_range[0], fixture_range[1] + 1)
+    return random.randint(fixture_range[0], fixture_range[1])
 
 
 def _email():
@@ -16,6 +17,19 @@ def _email():
 
 def _float(fixture_range=(0, 1)):
     return random.uniform(fixture_range[0], fixture_range[1])
+
+
+def _datetime():
+    return datetime(
+        _int(fixture_range=(1970, 2100)),  # year
+        _int(fixture_range=(1, 12)),  # month
+        _int(fixture_range=(1, 28)),  # day
+        _int(fixture_range=(0, 23)),  # hour
+        _int(fixture_range=(0, 59)),  # minutes
+        _int(fixture_range=(0, 59)),  # seconds
+        0,  # microseconds
+        tzinfo=timezone.utc
+    )
 
 
 class Email:
@@ -28,6 +42,7 @@ class Fixture:
         str: _string,
         int: _int,
         float: _float,
+        datetime: _datetime,
         Email: _email,
     }
 
