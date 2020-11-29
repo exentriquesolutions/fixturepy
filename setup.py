@@ -14,7 +14,7 @@ if sys.version_info < (3, 0):
 setup(
     name='fixturepy',
     packages=['fixturepy'],
-    version='0.3',
+    version='0.4',
     license='MIT',
     description='Create random data to be used in tests',
     author='Exentrique Solutions',
@@ -36,7 +36,6 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
