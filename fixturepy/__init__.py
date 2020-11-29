@@ -14,6 +14,10 @@ def _email():
     return '%s@%s.com' % (_string(), _string())
 
 
+def _float(fixture_range=(0, 1)):
+    return random.uniform(fixture_range[0], fixture_range[1])
+
+
 class Email:
     def __init__(self):
         pass
@@ -23,6 +27,7 @@ class Fixture:
     factories = {
         str: _string,
         int: _int,
+        float: _float,
         Email: _email,
     }
 

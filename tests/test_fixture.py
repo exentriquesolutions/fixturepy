@@ -29,3 +29,15 @@ class FixtureTest(TestCase):
         value = self.fixture(Email)
 
         validate_email(value, check_deliverability=False)
+
+    def test_fixture_should_create_floating_point_number(self):
+        value = self.fixture(float)
+
+        assert_that(value).is_greater_than_or_equal_to(0)
+        assert_that(value).is_less_than_or_equal_to(1)
+
+    def test_fixture_should_create_floating_point_number_range(self):
+        value = self.fixture(float, fixture_range=(5, 10))
+
+        assert_that(value).is_greater_than_or_equal_to(5)
+        assert_that(value).is_less_than_or_equal_to(10)
