@@ -8,7 +8,7 @@ test_dependencies = ['assertpy', 'email-validator']
 setup(
     name='fixturepy',
     packages=['fixturepy'],
-    version='0.2',
+    version='0.3',
     license='MIT',
     description='Create random data to be used in tests',
     author='Exentrique Solutions',

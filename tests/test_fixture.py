@@ -19,6 +19,12 @@ class FixtureTest(TestCase):
 
         assert_that(value).is_greater_than_or_equal_to(0)
 
+    def test_fixture_should_create_integer_range(self):
+        value = self.fixture(int, fixture_range=(10, 20))
+
+        assert_that(value).is_less_than_or_equal_to(20)
+        assert_that(value).is_greater_than_or_equal_to(10)
+
     def test_fixture_should_create_email(self):
         value = self.fixture(Email)
 
