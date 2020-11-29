@@ -1,9 +1,15 @@
+import sys
+
 from setuptools import setup
 
 with open('README.md', 'r') as fh:
     long_description = fh.read()
 
 test_dependencies = ['assertpy', 'email-validator']
+
+install_requires = []
+if sys.version_info < (3, 0):
+    install_requires.append('pytz')
 
 setup(
     name='fixturepy',
@@ -17,7 +23,7 @@ setup(
     keywords=['UnitTest', 'Fixture'],
     long_description=long_description,
     long_description_content_type="text/markdown",
-    install_requires=[],
+    install_requires=install_requires,
     tests_require=test_dependencies,
     test_suite='tests',
     extras_require={

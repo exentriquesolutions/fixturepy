@@ -1,6 +1,6 @@
 import random
 import uuid
-from datetime import datetime, timezone, date
+from datetime import datetime, date
 
 
 def _string():
@@ -20,6 +20,16 @@ def _float(fixture_range=(0, 1)):
 
 
 def _datetime():
+    try:
+        from datetime import timezone
+    except ImportError:
+        try:
+            import pytz as timezone
+        except ImportError:
+            raise RuntimeError('Dont know how to create UTC')
+
+    utc_timezone = timezone.utc if hasattr(timezone, 'utc') else timezone.UTC
+
     return datetime(
         _int(fixture_range=(1970, 2100)),  # year
         _int(fixture_range=(1, 12)),  # month
@@ -28,7 +38,7 @@ def _datetime():
         _int(fixture_range=(0, 59)),  # minutes
         _int(fixture_range=(0, 59)),  # seconds
         0,  # microseconds
-        tzinfo=timezone.utc
+        tzinfo=utc_timezone
     )
 
 
