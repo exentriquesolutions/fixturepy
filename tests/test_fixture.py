@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 from unittest import TestCase
 
 from assertpy import assert_that
@@ -48,5 +48,12 @@ class FixtureTest(TestCase):
 
         assert_that(value).is_type_of(datetime)
         assert_that(value.tzinfo).is_equal_to(timezone.utc)
+        assert_that(value.year).is_greater_than_or_equal_to(1970)
+        assert_that(value.year).is_less_than_or_equal_to(2100)
+
+    def test_fixture_should_create_date(self):
+        value = self.fixture(date)
+
+        assert_that(value).is_type_of(date)
         assert_that(value.year).is_greater_than_or_equal_to(1970)
         assert_that(value.year).is_less_than_or_equal_to(2100)

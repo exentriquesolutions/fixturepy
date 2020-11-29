@@ -1,6 +1,6 @@
 import random
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 
 
 def _string():
@@ -32,6 +32,14 @@ def _datetime():
     )
 
 
+def _date():
+    return date(
+        _int(fixture_range=(1970, 2100)),  # year
+        _int(fixture_range=(1, 12)),  # month
+        _int(fixture_range=(1, 28))
+    )
+
+
 class Email:
     def __init__(self):
         pass
@@ -43,6 +51,7 @@ class Fixture:
         int: _int,
         float: _float,
         datetime: _datetime,
+        date: _date,
         Email: _email,
     }
 
