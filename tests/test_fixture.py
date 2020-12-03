@@ -58,6 +58,11 @@ class FixtureTest(TestCase):
         assert_that(value.year).is_greater_than_or_equal_to(1970)
         assert_that(value.year).is_less_than_or_equal_to(2100)
 
+    def test_fixture_return_one_of_values(self):
+        value = self.fixture.one_of('one', 'two')
+
+        assert_that(value).is_in('one', 'two')
+
     @classmethod
     def _utc(cls):
         try:

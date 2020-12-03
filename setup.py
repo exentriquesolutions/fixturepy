@@ -2,6 +2,8 @@ import sys
 
 from setuptools import setup
 
+VERSION = '0.5'
+
 with open('README.md', 'r') as fh:
     long_description = fh.read()
 
@@ -14,7 +16,7 @@ if sys.version_info < (3, 0):
 setup(
     name='fixturepy',
     packages=['fixturepy'],
-    version='0.4',
+    version=VERSION,
     license='MIT',
     description='Create random data to be used in tests',
     author='Exentrique Solutions',

@@ -76,3 +76,7 @@ class Fixture:
         if factory:
             return factory(**factory_args)
         raise ValueError('Unsupported type %s' % cls)
+
+    def one_of(self, *fixtures):
+        index = self.create(int, fixture_range=(0, len(fixtures) - 1))
+        return fixtures[index]
